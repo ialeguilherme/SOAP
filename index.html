@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário SOAP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'subjetivo')">Subjetivo</button>
+            <button class="tab-button" onclick="openTab(event, 'objetivo')">Objetivo</button>
+            <button class="tab-button" onclick="openTab(event, 'resultados')">Resultados</button>
+        </div>
+
+        <div id="subjetivo" class="tab-content active">
+            <h2>Aba Subjetivo</h2>
+            <form id="formSubjetivo">
+                <div class="box">
+                    <h3>Queixa Principal</h3>
+                    <label>
+                        <input type="checkbox" name="queixaPrincipal" value="Rotina/Rastreio de citopatológico"> Rotina/Rastreio de citopatológico
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="queixaPrincipal" value="Corrimento" id="chkCorrimento"> Corrimento
+                        <input type="text" name="corrimentoDias" class="hidden" placeholder="Detalhe quantos dias" id="txtCorrimentoDias">
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="queixaPrincipal" value="Sangramento" id="chkSangramento"> Sangramento
+                        <input type="text" name="sangramentoDias" class="hidden" placeholder="Detalhe quantos dias" id="txtSangramentoDias">
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="queixaPrincipal" value="Dor Pélvica" id="chkDorPelvica"> Dor Pélvica
+                        <input type="text" name="dorPelvicaDias" class="hidden" placeholder="Detalhe quantos dias" id="txtDorPelvicaDias">
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="queixaPrincipal" value="Dispareunia"> Dispareunia
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="queixaPrincipal" value="Outros" id="chkOutrosQueixa"> Outros
+                        <input type="text" name="outrosQueixaDias" class="hidden" placeholder="Detalhe quantos dias" id="txtOutrosQueixaDias">
+                    </label>
+                </div>
+
+                <div class="box">
+                    <h3>Sintomas</h3>
+                    <label><input type="checkbox" name="sintomas" value="Menstruação irregular (oligomenorreia, polimenorreia)"> Menstruação irregular (oligomenorreia, polimenorreia)</label><br>
+                    <label><input type="checkbox" name="sintomas" value="Amenorreia (ausência de menstruação)"> Amenorreia (ausência de menstruação)</label><br>
+                    <label><input type="checkbox" name="sintomas" value="Menorragia (sangramento fora do período menstrual)"> Menorragia (sangramento fora do período menstrual)</label><br>
+                    <label><input type="checkbox" name="sintomas" value="Dismenorreia (cólicas menstruais)"> Dismenorreia (cólicas menstruais)</label><br>
+                    <label><input type="checkbox" name="sintomas" value="Prurido"> Prurido</label><br>
+                    <label><input type="checkbox" name="sintomas" value="Dispareunia"> Dispareunia</label><br>
+                    <label><input type="checkbox" name="sintomas" value="Secreção vaginal"> Secreção vaginal</label><br>
+                    <label><input type="checkbox" name="sintomas" value="Sangramento vaginal anormal"> Sangramento vaginal anormal</label><br>
+                    <label><input type="checkbox" name="sintomas" value="Incontinência urinária"> Incontinência urinária</label><br>
+                    <label><input type="checkbox" name="sintomas" value="Diminuição da libido"> Diminuição da libido</label><br>
+                    <label>
+                        <input type="checkbox" name="sintomas" value="Corrimento vaginal" id="chkCorrimentoSintoma"> Corrimento vaginal
+                        <select name="tipoCorrimento" class="hidden" id="selTipoCorrimento">
+                            <option value="">Selecione o tipo</option>
+                            <option value="fisiologico">fisiológico</option>
+                            <option value="esbranquicado">esbranquiçado</option>
+                            <option value="com_presenca_de_granulos">com presença de grânulos</option>
+                            <option value="amarelo_esverdeado_e_bolhoso">amarelo-esverdeado e bolhoso</option>
+                            <option value="amarelado_sem_odor">amarelado sem odor</option>
+                            <option value="amarelado_e_fetido">amarelado e fétido</option>
+                            <option value="purulento">purulento</option>
+                            <option value="aquoso_e_abundante">aquoso e abundante</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="box">
+                    <h3>Sintomas Mamários</h3>
+                    <label><input type="checkbox" name="sintomasMamarios" value="Mastalgia"> Mastalgia</label><br>
+                    <label><input type="checkbox" name="sintomasMamarios" value="Nódulos ou caroços nas mamas"> Nódulos ou caroços nas mamas</label><br>
+                    <label><input type="checkbox" name="sintomasMamarios" value="Secreção mamilar"> Secreção mamilar</label><br>
+                    <label><input type="checkbox" name="sintomasMamarios" value="Alterações na pele das mamas"> Alterações na pele das mamas</label>
+                </div>
+
+                <div class="box">
+                    <h3>Histórico Sexual</h3>
+                    <label>
+                        <input type="checkbox" name="historicoSexual" value="Menarca" id="chkMenarca"> Menarca
+                        <input type="number" name="idadeMenarca" class="hidden" placeholder="Idade" id="txtIdadeMenarca">
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="historicoSexual" value="Primeira Relação Sexual" id="chkPrimeiraRelacao"> Primeira Relação Sexual
+                        <input type="number" name="idadePrimeiraRelacao" class="hidden" placeholder="Idade" id="txtIdadePrimeiraRelacao">
+                    </label><br>
+                    <div>
+                        <h4>Menopausa</h4>
+                        <label>
+                            <input type="radio" name="menopausa" value="sim" id="radMenopausaSim"> Sim
+                        </label>
+                        <label>
+                            <input type="radio" name="menopausa" value="nao" id="radMenopausaNao"> Não
+                        </label><br>
+                        <div id="divUsaHormonio" class="hidden">
+                            <label>
+                            	Usa hormônio?
+                                <input type="radio" name="usaHormonio" value="sim"> Sim
+                            </label>
+                            <label>
+                                <input type="radio" name="usaHormonio" value="nao"> Não
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>Atividade Sexual</h3>
+                    <label>
+                        <input type="radio" name="atividadeSexual" value="sim" id="radAtividadeSexualSim"> Sim
+                    </label>
+                    <label>
+                        <input type="radio" name="atividadeSexual" value="nao" id="radAtividadeSexualNao"> Não
+                    </label><br>
+                    <div id="divParceiroFixo" class="hidden">
+                        <label>
+                            <input type="radio" name="parceiroFixo" value="sim" id="radParceiroFixoSim"> Parceiro Fixo? Sim
+                        </label>
+                        <label>
+                            <input type="radio" name="parceiroFixo" value="nao" id="radParceiroFixoNao"> Não
+                        </label><br>
+                        <input type="text" name="tempoParceiroFixo" class="hidden" placeholder="Tempo com parceiro fixo" id="txtTempoParceiroFixo">
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>Histórico Reprodutivo</h3>
+                    <label>
+                        G(<input type="number" name="gesta" size="3">)
+                        P(<input type="number" name="para" size="3">)
+                        A(<input type="number" name="aborto" size="3">)
+                    </label>
+                </div>
+
+                <div class="box">
+                    <h3>Histórico de Coleta</h3>
+                    <label>Última Coleta: <input type="text" name="tempoUltimaColeta" placeholder="Ex: 6 meses atrás"></label>
+                </div>
+
+                <div class="box">
+                    <h3>ISTs Prévias</h3>
+                    <label><input type="checkbox" name="istsPrevias" value="Nega"> Nega</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Clamídia"> Clamídia</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Gonorreia"> Gonorreia</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Sífilis"> Sífilis</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Herpes Genital"> Herpes Genital</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="HPV"> HPV</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="HIV"> HIV</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Hepatite B"> Hepatite B</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Hepatite C"> Hepatite C</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Tricomoníase"> Tricomoníase</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Candidíase"> Candidíase</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Vaginose Bacteriana"> Vaginose Bacteriana</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Cancro Mole"> Cancro Mole</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Linfogranuloma Venéreo"> Linfogranuloma Venéreo</label><br>
+                    <label><input type="checkbox" name="istsPrevias" value="Donovanose"> Donovanose</label>
+                </div>
+
+                <div class="box">
+                    <h3>Contracepção</h3>
+                    <label><input type="checkbox" name="contracepcao" value="Nenhum"> Nenhum</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Pílula Anticoncepcional Oral"> Pílula Anticoncepcional Oral</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="DIU (Cobre/Hormonal)"> DIU (Cobre/Hormonal)</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Implante Subdérmico"> Implante Subdérmico</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Injeção Anticoncepcional"> Injeção Anticoncepcional</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Adesivo Anticoncepcional"> Adesivo Anticoncepcional</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Preservativo (Camisa)"> Preservativo (Camisa)</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Diafragma"> Diafragma</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Espermicida"> Espermicida</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Coito Interrompido"> Coito Interrompido</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Tabelinha/Método do Ritmo"> Tabelinha/Método do Ritmo</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Laqueadura"> Laqueadura</label><br>
+                    <label><input type="checkbox" name="contracepcao" value="Vasectomia (parceiro)"> Vasectomia (parceiro)</label>
+                </div>
+
+                <div class="box">
+                    <h3>Antecedentes Pessoais</h3>
+                    <label>
+                    	Vacinação em dia?
+                        <input type="radio" name="vacinacaoEmDia" value="sim"> Sim
+                    </label>
+                    <label>
+                        <input type="radio" name="vacinacaoEmDia" value="nao"> Não
+                    </label><br>
+                    <label><input type="checkbox" name="antecedentesPessoais" value="Tabagista"> Tabagista</label><br>
+                    <label><input type="checkbox" name="antecedentesPessoais" value="Alcoolatra"> Alcoolatra</label><br>
+                    <label><input type="checkbox" name="antecedentesPessoais" value="Drogas Ilícitas"> Usuária de Drogas Ilícitas</label><br>
+                    <label><input type="checkbox" name="antecedentesPessoais" value="Hipertensa"> Hipertensa</label><br>
+                    <label><input type="checkbox" name="antecedentesPessoais" value="Diabética"> Diabética</label><br>
+                    <div>
+                        <label>Câncer de colo ou mama?</label><br>
+                        <label>
+                            <input type="radio" name="cancerColoMamaPessoal" value="sim"> Sim
+                        </label>
+                        <label>
+                            <input type="radio" name="cancerColoMamaPessoal" value="nao"> Não
+                        </label>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>Histórico Familiar</h3>
+                    <div>
+                        <label>Diabetes?</label><br>
+                        <label><input type="radio" name="diabetesFamiliar" value="sim"> Sim</label>
+                        <label><input type="radio" name="diabetesFamiliar" value="nao"> Não</label>
+                    </div>
+                    <div>
+                        <label>Hipertensão?</label><br>
+                        <label><input type="radio" name="hipertensaoFamiliar" value="sim"> Sim</label>
+                        <label><input type="radio" name="hipertensaoFamiliar" value="nao"> Não</label>
+                    </div>
+                    <div>
+                        <label>Câncer de colo ou mama?</label><br>
+                        <label><input type="radio" name="cancerColoMamaFamiliar" value="sim"> Sim</label>
+                        <label><input type="radio" name="cancerColoMamaFamiliar" value="nao"> Não</label>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>Medicações em Uso</h3>
+                    <textarea name="medicacoesEmUso" rows="4" placeholder="Liste as medicações em uso"></textarea>
+                </div>
+
+            </form>
+        </div>
+
+        <div id="objetivo" class="tab-content">       
+            <h2>Aba Objetivo</h2>
+            <form id="formObjetivo">
+                <div class="box">
+                    <h3>Exame das Mamas</h3>
+                    <label>
+                        <input type="checkbox" name="exameMamasRealizado" id="chkExameMamasRealizado"> Exame das mamas realizado
+                    </label>
+                    <div id="divExameMamas" class="hidden">
+                        <label for="simetriaMamas">Simetria de Mamas:</label>
+                        <select id="simetriaMamas" name="simetriaMamas">
+                            <option value="">Selecione</option>
+                            <option value="simetricas">Simétricas</option>
+                            <option value="assimetricas">Assimétricas</option>
+                        </select><br>
+
+                        <h4>Alterações de Pele:</h4>
+                        <label><input type="checkbox" name="alteracoesPele" value="integra"> Íntegra</label><br>
+                        <label><input type="checkbox" name="alteracoesPele" value="retracao"> Retração</label><br>
+                        <label><input type="checkbox" name="alteracoesPele" value="hiperemia"> Hiperemia</label><br>
+                        <label><input type="checkbox" name="alteracoesPele" value="pele_em_casca_de_laranja"> Pele em casca de laranja</label><br>
+                        <label>
+                            <input type="checkbox" name="alteracoesPele" value="lesao_ulcera" id="chkLesaoUlcera"> Lesão/Úlcera
+                            <input type="text" name="detalheLesaoUlcera" class="hidden" placeholder="Detalhar lesão/úlcera" id="txtDetalheLesaoUlcera">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>Alterações de Mamilo</h3>
+                    <label for="achadoMamilo">Achado de Mamilo:</label>
+                    <select id="achadoMamilo" name="achadoMamilo">
+                        <option value="">Selecione</option>
+                        <option value="normal">Normal</option>
+                        <option value="invertido">Invertido</option>
+                        <option value="protuberante">Protuberante</option>
+                        <option value="fissurado">Fissurado</option>
+                        <option value="ulcerado">Ulcerado</option>
+                        <option value="secrecao">Secreção</option>
+                        <option value="outros">Outros</option>
+                    </select><br>
+                    <input type="text" name="detalheMamilo" placeholder="Detalhar achado de mamilo" id="txtDetalheMamilo" class="hidden">
+                </div>
+
+                <div class="box">
+                    <h3>Palpações de Mamas</h3>
+                    <div class="nodule-input-group">
+                        <label for="noduloMama">Mama:</label>
+                        <select id="noduloMama">
+                            <option value="">Selecione</option>
+                            <option value="esquerda">Esquerda</option>
+                            <option value="direita">Direita</option>
+                        </select>
+
+                        <label for="noduloLocalizacao">Localização:</label>
+                        <select id="noduloLocalizacao">
+                            <option value="">Selecione</option>
+                            <option value="qse">QSE</option>
+                            <option value="qsd">QSD</option>
+                            <option value="qie">QIE</option>
+                            <option value="qid">QID</option>
+                        </select>
+
+                        <label for="noduloTamanho">Tamanho (cm):</label>
+                        <input type="text" id="noduloTamanho" placeholder="Ex: 4 cm" style="width: 80px;">
+
+                        <label for="noduloMobilidade">Mobilidade:</label>
+                        <select id="noduloMobilidade">
+                            <option value="">Selecione</option>
+                            <option value="movel">Móvel</option>
+                            <option value="imovel">Imóvel</option>
+                        </select>
+
+                        <label for="noduloConsistencia">Consistência:</label>
+                        <select id="noduloConsistencia">
+                            <option value="">Selecione</option>
+                            <option value="endurecido">Endurecido</option>
+                            <option value="amolecido">Amolecido</option>
+                        </select>
+
+                        <label for="noduloDoloroso">Doloroso:</label>
+                        <select id="noduloDoloroso">
+                            <option value="">Selecione</option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                        </select>
+                        <button type="button" id="addNoduloBtn">Adicionar Nódulo</button>
+                    </div>
+
+                    <div class="box">
+                        <h3>Lista de Nódulos Encontrados</h3>
+                        <ul id="listaNodulosEncontrados">
+                            </ul>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>Observações Adicionais</h3>
+                    <textarea name="observacoesAdicionais" rows="4" placeholder="Adicione quaisquer observações adicionais"></textarea>
+                </div>
+
+                <div class="box">
+                    <h3>Coleta</h3>
+                    <label>
+                        <input type="checkbox" name="coletaRealizada" id="chkColetaRealizada"> Coleta realizada
+                    </label>
+                    <div id="divMotivoColetaNaoRealizada" class="hidden">
+                        <input type="text" name="motivoColetaNaoRealizada" placeholder="Especificar motivo da não realização">
+                    </div>
+
+                    <div id="divDetalhesColeta" class="hidden">
+                        <h4>Condições do Colo Uterino</h4>
+                        <label for="condicoesColoUterino">Condição:</label>
+                        <select id="condicoesColoUterino" name="condicoesColoUterino">
+                            <option value="">Selecione</option>
+                            <option value="normal">Normal</option>
+                            <option value="inflamado">Inflamado</option>
+                            <option value="lesao_visivel">Lesão Visível</option>
+                        </select>
+
+                        <h4>Aspectos do Colo Uterino</h4>
+                        Visualização
+                        <label><input type="checkbox" name="visualizacaoColo" value="boa">Boa</label><br>
+                        <label><input type="checkbox" name="visualizacaoColo" value="dificil">Difícil</label><br>
+
+                        <label for="posicaoColo">Posição:</label>
+                        <select id="posicaoColo" name="posicaoColo">
+                            <option value="">Selecione</option>
+                            <option value="centralizado">Centralizado</option>
+                            <option value="lateralizado_direita">Lateralizado à Direita</option>
+                            <option value="lateralizado_esquerda">Lateralizado à Esquerda</option>
+                            <option value="anterovertido">Anterovertido</option>
+                            <option value="retrovertido">Retrovertido</option>
+                        </select>
+                        <span class="info-icon" title="Clique para ver as visualizações do útero" onclick="showUteroImage()">&#9432;</span>
+                        <div id="uteroImageContainer" class="hidden">
+                            <img src="utr.jpg" alt="Visualizações do Útero" style="max-width: 100%;">
+                        </div>
+                        <br>
+
+                        <h4>Secreção</h4>
+                        <label><input type="checkbox" name="secrecaoColo" value="ausente"> Ausente</label><br>
+                        <label><input type="checkbox" name="secrecaoColo" value="fisiologico"> Fisiológico</label><br>
+                        <label><input type="checkbox" name="secrecaoColo" value="moderado"> Moderado</label><br>
+                        <label><input type="checkbox" name="secrecaoColo" value="abundante"> Abundante</label><br>
+                        <label><input type="checkbox" name="secrecaoColo" value="purulenta"> Purulenta</label><br>
+
+                        <h4>Corrimento</h4>
+                     
+						<label><input type="checkbox" name="corrimentoVaginose" value="aquoso"> Aquoso</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="espumoso"> Espumoso</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="esbranquiçado"> Esbranquiçado</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="amarelo_esverdeado"> Amarelo-esverdeado</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="acinzentado"> Acinzentado</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="grumoso"> Grumoso</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="homogeneo"> Homogêneo</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="abundante"> Abundante</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="escasso"> Escasso</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="moderado"> Moderado</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="sem_sintomas"> Assintomático</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="com prurido"> Com prurido</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="com ardência"> Com ardência</label><br>
+						<label><input type="checkbox" name="corrimentoVaginose" value="hiperemiado"> Com hiperemia</label><br>
+
+
+                        <h4>Odor</h4>
+                        <label><input type="checkbox" name="odorColo" value="fisiologico"> Fisiológico</label><br>
+                        <label><input type="checkbox" name="odorColo" value="caracteristico"> Fétido (peixe podre)</label><br>
+
+                        <h4>Cor do Colo</h4>
+                        <label><input type="checkbox" name="corColo" value="rosado"> Rosado</label><br>
+                        <label><input type="checkbox" name="corColo" value="hiperemiado"> Hiperemiado</label><br>
+                        <label><input type="checkbox" name="corColo" value="amarronzado"> Amarronzado</label><br>
+                        <label><input type="checkbox" name="corColo" value="colpite_granulosa"> Colpite Granulosa</label><br>
+
+                        <h4>Paredes</h4>
+                        <label><input type="checkbox" name="paredesColo" value="integras"> Íntegras</label><br>
+                        <label><input type="checkbox" name="paredesColo" value="apresentando_lesoes"> Apresentando Lesões</label><br>
+                        <label><input type="checkbox" name="paredesColo" value="hiperemiada"> Hiperemiada</label><br>
+
+                        <h4>Sangramento</h4>
+                        <label><input type="checkbox" name="sangramentoColeta" value="ausente"> Ausente</label><br>
+                        <label><input type="checkbox" name="sangramentoColeta" value="de_contato_na_coleta"> De contato na coleta</label><br>
+                        <label><input type="checkbox" name="sangramentoColeta" value="espontaneo"> Espontâneo</label><br>
+
+                        <h4>Condições da Paciente</h4>
+                        <label><input type="checkbox" name="condicoesPaciente" value="Não referiu desconforto"> Não referiu desconforto</label><br>
+                        <label><input type="checkbox" name="condicoesPaciente" value="Relatou dor leve a moderada"> Relatou dor leve a moderada</label><br>
+                        <label><input type="checkbox" name="condicoesPaciente" value="Refere medo/ansiedade"> Refere medo/ansiedade</label><br>
+
+                        <h4>Tipo de Material Coletado</h4>
+                        <label><input type="checkbox" name="tipoMaterialColetado" value="ectocervice"> Ectocérvice</label><br>
+                        <label><input type="checkbox" name="tipoMaterialColetado" value="endocervice"> Endocérvice</label><br>
+                        <label><input type="checkbox" name="tipoMaterialColetado" value="jec"> JEC</label><br>
+                    </div>
+                </div>
+            </form>
+            </div>
+
+        <div id="resultados" class="tab-content">
+            <h2>Aba Resultados</h2>
+            <button id="gerarRelatorio">Gerar Relatório</button>
+            <div id="relatorioGerado">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

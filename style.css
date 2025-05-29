@@ -1,0 +1,236 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1000px; /* Ajuste conforme necessário */
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    transition: 0.3s;
+    font-size: 17px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.tab-button:hover {
+    background-color: #ddd;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+    border-bottom: none;
+}
+
+.tab-content {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #fff;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Estilos para as "boxes" do formulário */
+.box {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.box h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.box label {
+    display: inline-block; /* Permite que o checkbox e o texto fiquem na mesma linha */
+    margin-bottom: 8px;
+    color: #555;
+    margin-right: 15px;
+}
+
+.box input[type="text"],
+.box input[type="number"],
+.box textarea,
+.box select {
+    width: calc(100% - 20px); /* Ajuste para não ultrapassar a largura da box */
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+}
+
+.box textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 80px;
+}
+
+.box input[type="checkbox"],
+.box input[type="radio"] {
+    margin-right: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilo para a caixa de input de G, P, A */
+.box input[name="gesta"],
+.box input[name="para"],
+.box input[name="aborto"] {
+    width: 50px; /* Largura menor para estes campos específicos */
+    text-align: center;
+    margin-right: 5px;
+    display: inline-block; /* Para ficar ao lado do G, P, A */
+}
+
+#gerarRelatorio {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#gerarRelatorio:hover {
+    background-color: #218838;
+}
+
+#relatorioGerado {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+    min-height: 100px;
+    white-space: pre-wrap; /* Preserva quebras de linha */
+    word-wrap: break-word; /* Quebra palavras longas */
+}
+/* Estilos para o grupo de input de nódulos */
+.nodule-input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+}
+
+.nodule-input-group label {
+    margin-bottom: 0;
+}
+
+.nodule-input-group select,
+.nodule-input-group input[type="text"] {
+    flex: 1; /* Permite que os campos se expandam */
+    min-width: 100px; /* Largura mínima para cada campo */
+    margin-bottom: 0; /* Remove a margem inferior padrão */
+}
+
+#addNoduloBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap; /* Evita que o texto quebre */
+}
+
+#addNoduloBtn:hover {
+    background-color: #0056b3;
+}
+
+#listaNodulosEncontrados {
+    list-style-type: none;
+    padding: 0;
+}
+
+#listaNodulosEncontrados li {
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#listaNodulosEncontrados li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#listaNodulosEncontrados li button:hover {
+    background-color: #c82333;
+}
+
+.info-icon {
+    cursor: pointer;
+    color: #007bff;
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: 1.1em;
+}
+
+#uteroImageContainer {
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+#uteroImageContainer img {
+    max-width: 300px; /* Ajuste o tamanho máximo da imagem */
+    height: auto;
+}
